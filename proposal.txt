@@ -1,11 +1,8 @@
 1. Group member: Ermal Dedej, Ruiqian Zhang
 
-2. Personalized Lunch Options: Lunchy. Lunchy is a search application that search for lunch menus and will give to the user a list of restaurants on where to eat lunch. The user will not necessarily need a registration to use Lunchy but if it register the app will be able to remember users choices and filter the result based on those choices and preference. The user will need to insert a location (zip code) for the app to be able to display places that offer lunch. Users will be able to filter the search based on the price range, type of food, type of restaurant and other menus preferences( Ex. vegan or vegetarian). If users log in, they will be able to save their favorite places, to share their choices with other people, or invite other people to lunch together.
-We will use google maps API to display the location, also we will use other APIs to retrieve the menus like OpenMenu API. We are still researching if there other API that might help us to get the information we need. We will store the information about the user in database that we will retrieve every time the user log in. Also, we will use the D3 visualization API to create Zoomable Map that will help user to see where the location is.
+2. Lunch Options Application: Lunchy. Lunchy is a search application that searches  lunch menus and will give the user a list of restaurants where they can eat lunch. The user will not necessarily need to register to use Lunchy but if they do the app will be able to remember user's choices and filter the results based on those choices and preferences. The user will need to insert a location (zip code) for the app to be able to display places that offer lunch. Users will be able to filter the search based on the price range, type of food, type of restaurant and other menus preferences (Ex. vegan or vegetarian). If users log in, they will be able to save their favorite places, to share their choices with other people, or invite other people to have lunch together.
+We will use Google maps API to display the location, we will also use other APIs to retrieve the menus like OpenMenu API. We are still researching if there other APIs that might help us to get the information we need. We will store the information about the user in the database that we will retrieve every time the user logs in. Also, we will use the D3 visualization API to create a Zoomable Map that will help user to see find the restaurant location.
 
-Logic?
-
-3. Repository URL: https://github.com/RichardZzzz/MyProject
-
-4. Ermal Dedej URL: https://github.com/ededej
-    Ruiqian Zhang URL: https://github.com/RichardZzzz
+3. Ermal Dedej URL: https://github.com/ededej
+   Ruiqian Zhang URL: https://github.com/RichardZzzz
+4. Github pages website:  https://ededej.github.io/hw-submissions/
