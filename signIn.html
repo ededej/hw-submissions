@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--The sing in page is the page that the user will see when it get log in. So, it will contains
+user favorite places, Pranzos suggestion and other functionality that we will add in feature. The contact us
+box at the end contains a transition and transformation.-->
+<head>
+    <meta charset="UTF-8">
+    <title>Pranzo - Singed In</title>
+    <!--The main.css include all previous style that I will follow on this page also-->
+    <!-- singIn.css includes personalized styles for this page-->
+    <link type="text/css" rel="stylesheet" href="main.css">
+    <link type="text/css" rel="stylesheet" href="signIn.css">
+
+</head>
+<body>
+<!-- The header of lunch website called Pranzo-->
+    <header>
+        <a href="index.html" title="Pranzo-Homepage" ><img src="plate-004.jpg" width="150" height="150" alt="Pranzo logo"
+                                  style="float:left"></a>
+        <h1> Pranzo </h1>
+        <h2>A better lunch hour</h2>
+    </header>
+<!--Menu will let the user quickly choose what it wants to display-->
+    <div id="menu">
+        <ul>
+            <li><a class="target" href="#favRes"> Favorite places</a></li>
+            <li><a class="target"  href="#sugg"> Our Suggestions</a></li>
+            <li><a class="target" href="#contact">Contact Us</a></li>
+        </ul>
+    </div>
+
+<!--Welcome message to the user with their name-->
+    <div id="helloMsg">
+        <h3>Welcome, User</h3>
+    </div>
+<!--On this section I will display a table with the user favorite places to eat-->
+    <div class="myTable" id="favRes">
+        <h4> Your favorite places to eat</h4>
+        <table>
+            <tr>
+                 <th>Restaurant</th>
+                 <th>Type of Food</th>
+                  <th>Location</th>
+                  </tr>
+            <tr>
+                <td>Faccia Luna</td>
+                <td>Italian</td>
+                <td>Arlington, VA</td>
+            </tr>
+            <tr>
+                <td>Cactus Cantina</td>
+                <td>Mexican</td>
+                <td>Washington, DC</td>
+            </tr>
+            <tr>
+                <td>Barcelona</td>
+                <td>Spanish</td>
+                <td>Washington, DC</td>
+            </tr>
+        </table>
+    </div>
+
+<!--On this section I will display a table with Pranzos suggestion of places to eat-->
+    <div class="myTable" id="sugg">
+        <h4> Our suggestion for you today</h4>
+
+        <table>
+            <tr>
+                <th>Restaurant</th>
+                <th>Type of Food</th>
+                <th>Location</th>
+            </tr>
+            <tr>
+                <td>Red Hen</td>
+                <td>Italian</td>
+                <td>Washington, DC</td>
+            </tr>
+            <tr>
+                <td>Diplomat</td>
+                <td>French</td>
+                <td>Washington, DC</td>
+            </tr>
+            <tr>
+                <td>Texas Jack</td>
+                <td>American BBQ</td>
+                <td>Arlington, VA</td>
+            </tr>
+        </table>
+    </div>
+<!--The footer contains the box transformation-->
+    <footer>
+    <div class="box" id="contact"> Contact US
+        <!--All p are hidden it will display on hover-->
+        <p></p>
+        <p>Call:<a href="tel:+12023868995">2023868995</a></p>
+        <p>email: <a href="mailto:dedej33@gmail.com" target="_blank">dedej33@gmail.com</a></p>
+    </div>
+
+    </footer>
+</body>
+<!--end body-->
+</html>
+<!--end html-->

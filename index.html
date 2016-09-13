@@ -1,14 +1,57 @@
-<HTML>
-   <HEAD>
-      <TITLE>
-         A Small Hello
-      </TITLE>
-   </HEAD>
-<BODY>
-   <H1>This website is for the submission of the HW0</H1>
-   <P>This is very minimal "hello world" HTML document.</P>
-   <P>Ermal Dedej Ruiqian Zhang worked on this.</P>
-   <P>Last update <time> 5:14 Sept 5,2016</time></P>
+<!DOCTYPE html>
+<html lang="en">
 
-</BODY>
-</HTML>
+<!--This is our homepage. Pranzo is a simple website that finds people their favorite lunch
+The first thing users see on our website is the search box to start searching for their lunch. Other than searching
+for lunch, user will be able to sign in so they can save their favorite places and check the suggestion that Pranzo
+makes for lunch. To sing in user need to sing up once to the website. Links for that are located under singin button.
+Also, resturant will be able to sing in and updates their menus at any time so they have separate way to sign in.
+The idea is to keep it simple so every user will be able to start using without to much troubles.
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pranzo</title>
+    <link type="text/css" rel="stylesheet" href="main.css">
+
+</head>
+<body>
+<!-- The header of lunch website called Pranzo-->
+    <header>
+        <a href="index.html"><img src="plate-004.jpg" width="150" height="150" alt="Ermal Dedej photo"
+             style="float:left"></a>
+        <h1> Pranzo </h1>
+        <h2>A better lunch hour</h2>
+    </header>
+
+
+<!--Here is the search bottom-->
+    <div id="search">
+       <label>Find Lunch : <input type="text" name="search" placeholder="Zipcode or adreess"> </label>
+    </div>
+
+<!-- The singIn section -->
+    <div id="signIn">
+        <form action="signIn.html">
+        <p> Sign in</p>
+        <label >Email Address <input type = "email" placeholder="Insert email"/></label>
+        <label >Password <input type = "password" minlength="6" placeholder="More than six characters"/></label>
+            <input type="submit" class="button">
+        </form>
+        </div>
+
+<!-- This is last part with sign up, sign up resturant, about us, contatct us-->
+<!--I used a list to list them at the end-->
+    <div id="underSearch">
+        <ul>
+            <li id="singUp" ><a href="signUp.html">Sign up for free </a></li>
+            <li id="singUpResturant" ><a href=".html">Sign up for Restaurant </a></li>
+            <li id ="about">About Us</li>
+            <li id="contactUs">Contact Us</li>
+        </ul>
+    </div>
+
+</body>
+<!--end body-->
+</html>
+<!--end html-->

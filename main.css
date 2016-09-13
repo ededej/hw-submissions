@@ -1,0 +1,194 @@
+/*This is the main css where most of the CSS body and header will be devopled and other pages
+will inheret most of this styles*/
+/*Body css*/
+body{
+    background-color:whitesmoke;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/*Making the website responsive to different resulutions*/
+@media (max-width: 200px) {
+    html
+    {   font-size: 2%;
+        overflow: scroll;
+    }
+}
+@media (min-width: 300px) {
+    html {
+        font-size: 70%;
+        overflow: scroll;
+    }
+}
+
+@media (min-width: 360px) {
+    html {
+        font-size: 95%;
+        overflow: scroll;
+    }
+}
+
+@media (min-width: 500px) {
+    html {
+        font-size: 135%;
+        overflow: scroll;
+    }
+}
+
+@media (min-width: 700px) {
+    html {
+        font-size: 160%;
+        overflow: scroll;
+    }
+}
+
+@media (min-width: 1000px) {
+    html { font-size: 180%; }
+}
+
+@media (min-width: 1500px) {
+    html { font-size: 225%; }
+}
+
+/*header css which include the logo and banner*/
+header{
+    background-color:darksalmon;
+    height: 150px;
+    margin-bottom: 10px;
+    position: relative;
+    min-width: 50%;
+    max-width: 100%;
+}
+
+header h1{
+    margin:1% 2% 0% 20%  ;
+    color:black;
+    font-size:1.8em;
+    text-transform:uppercase;
+    text-align: center;
+    letter-spacing:0.5em;
+    font-family: Klee, Times, serif;
+}
+
+header h2{
+    margin-left:40%  ;
+    margin-top: 0%;
+    font-size: 1.4em;
+    color:black;
+    text-align:center;
+    letter-spacing:0.1em;
+    font-family: "Cambria Math", Times, serif;
+
+}
+
+/*search css*/
+#search{
+    align-items: baseline;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 1.1em;
+}
+
+input[type=text] {
+    height: 55px;
+    width: 210px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    font-size: .5em;
+    background-color: white;
+    background-image: url('search_icon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 10px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/*making the search box to be larger when focus on it*/
+input[type=text]:focus {
+    width: 91%;
+    height: 65px;
+}
+
+/*Sign in CSS*/
+form {
+    /* Just to center the form on the page */
+    margin: 0 auto;
+    width: 400px;
+    /* To see the outline of the form */
+    padding: 1em;
+}
+
+/*The siging it will aling in center*/
+#signIn{
+    align-content: center;
+    text-align: center;
+    font-size: 1em;
+    display: block;
+
+}
+
+/*I have costumize the lable of the sing in to be centered */
+#signIn  label {
+    width: 90px;
+    padding-bottom: 10px;
+    display: inline-table ;
+    text-align:left;
+    margin-bottom: 20px;
+    font-size: 0.7em;
+}
+
+/*The css for the input box for sing in */
+input[type=email] {
+    height: 45px;
+    width: 250px;
+    box-sizing: border-box;
+    border: 2px solid #24cdd4;
+    border-radius: 12px;
+    font-size: 0.7em;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 12px;
+
+}
+input[type=password] {
+    height: 45px;
+    width: 250px;
+    box-sizing: border-box;
+    border: 2px solid #24cdd4;
+    border-radius: 12px;
+    font-size: 0.7em;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 12px;
+
+}
+
+/*The button that submitts sing in information*/
+.button{
+    color:white;
+}
+input[type=submit] {
+    background-color:darksalmon  ;
+    width:200px;
+    height: 60px;
+    border:4px;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+/*The last part of CSS where I have the list of links*/
+#underSearch{
+    align-content: center;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+#underSearch li{
+    display: block;
+    text-align: center;
+    margin-bottom: 1em;
+}

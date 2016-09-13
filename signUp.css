@@ -1,0 +1,110 @@
+/*Join welcome message style*/
+h3{
+    margin: 1.5em  0.5em 0.5em 0.5em;
+}
+/*The form will be margin left by 1em since the text is position left*/
+#allForm{
+    margin-left: 1em;
+}
+
+form{
+    font-size:0.6em;
+    display: inline;
+    margin-left: 4em;
+
+}
+
+/*The selector for the focus on box*/
+input:focus{
+    outline: none;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+}
+
+/*The style for input radio button*/
+input[type=radio]{
+    border-radius: 30px;
+}
+
+/*The style for input radio button*/
+input[type=checkbox]{
+    border-radius: 40px;
+}
+/*The style for input name */
+
+input[type=name] {
+    height: 35px;
+    width: 250px;
+    box-sizing: border-box;
+    border: 2px solid #24cdd4;
+    border-radius: 12px;
+    font-size: 0.7em;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 12px;
+
+}
+/*Here we are using the same style as main.css but with differnt size*/
+#emailPass input[type=email]{
+    height: 35px;
+    width: 250px;
+
+}
+
+#emailPass input[type=password] {
+    height: 35px;
+    width: 250px;
+}
+
+/*The style for adress input to match the rest of the form*/
+input[type=address] {
+    height: 30px;
+    width: 250px;
+    box-sizing: border-box;
+    border: 2px solid #24cdd4;
+    border-radius: 12px;
+    font-size: 0.7em;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 12px;
+}
+/* The fildset postions on the page*/
+fieldset { 
+    display: block;
+    margin-right: 900px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 5px groove;
+}
+
+#radio label {
+    float: right;
+    display: inline;
+    width: auto;
+    margin-left: 4em;
+}
+
+/*Some personalized views for the text */
+#emailPass {
+    text-align: left;
+    display: inline-table;
+    width: 380px;
+    margin-bottom: 1.5em;
+}
+
+/*The button to submit style wihich changes color on hover*/
+.button {
+    background-color:darksalmon  ;
+    color:white;
+    width:200px;
+    height: 60px;
+    border:center;
+    border-radius: 20px;
+    font-size: 1em;
+}
+.button:hover {
+    background-color: lightgreen;
+    transition: all 0.4s;
+}

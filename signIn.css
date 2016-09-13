@@ -1,0 +1,103 @@
+
+/*The space bettwen each divs*/
+div{
+    margin: 2em 0.3em 0em 0.3em;
+}
+/*The menu style*/
+#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+#menu{
+    font-size: 0.8em;
+}
+#menu li {
+    float: left;
+}
+
+#menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#menu li a:hover:not(.active) {
+    background-color: darkseagreen;
+}
+
+#menu .active {
+    background-color: darkcyan;
+}
+
+a.hidden {
+    visibility:hidden;
+}
+a:visited .hidden {
+    visibility:visible;
+}
+
+/*The table style to show the info to the user*/
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: aliceblue;
+}
+
+th, td {
+    padding: 15px;
+}
+
+/*This is the css for the box at the footer of webpage Contact US*/
+.box{
+    width:6em;
+    height:2em;
+    color:white;
+    text-align: center;
+    background: darksalmon;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+
+/*The width of the box will go to be 100% of the screen but height just goes 3em on hover*/
+.box:hover{
+    background-color: #24cdd4;
+    width:100%;
+    height: 3em;
+    transform: rotate(360deg);
+    z-index: 1;
+}
+.transform1 {
+    transform:translate(3em, 50%);
+}
+.transform2 {
+    transform: scale(2, 0.5);
+}
+.transform3{
+    transform: rotate(0.3turn);
+}
+
+.transform4{
+    transform: skew(30deg, 20deg);
+}
+
+/*This will display phone number and email on when the footer is hovered*/
+footer p {
+    display: none;
+}
+
+footer:hover p {
+    display: inline-block;
+    padding-right: 1em;
+    z-index: 2;
+
+}
