@@ -4,43 +4,19 @@ div{
     margin: 2em 0.3em 0em 0.3em;
 }
 /*The menu style*/
-#menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
 
 #menu{
-    font-size: 0.8em;
-}
-#menu li {
-    float: left;
+    /*width:80%;*/
+    margin-top: 10px;
 }
 
-#menu li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+button[type=buttonMenu] {
+    width: 120px;
+    height:50px;
+    border-radius: 20px;
+    margin: 6px;
 }
 
-#menu li a:hover:not(.active) {
-    background-color: darkseagreen;
-}
-
-#menu .active {
-    background-color: darkcyan;
-}
-
-a.hidden {
-    visibility:hidden;
-}
-a:visited .hidden {
-    visibility:visible;
-}
 
 /*The table style to show the info to the user*/
 table, td, th {
