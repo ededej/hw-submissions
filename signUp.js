@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function SubmitPopUp()
 {
     showMessageDialog("Thank you for sign up!\n\nClick 'OK' to sign in from main page!","normal");
@@ -77,3 +78,5 @@ function showMessageDialog(message,type)
         });
     }
 }
+=======
+>>>>>>> ededej/hw2
