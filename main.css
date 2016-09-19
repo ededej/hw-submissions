@@ -176,7 +176,7 @@ input[type=password] {
 .btnSubmit{
     color:white;
 }
-button[type=submit] {
+button[type=submitBtn] {
     background-color:darksalmon  ;
     width:250px;
     height: 40px;
