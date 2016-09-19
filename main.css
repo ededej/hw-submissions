@@ -1,68 +1,73 @@
 /*This is the main css where most of the CSS body and header will be devopled and other pages
 will inheret most of this styles*/
 /*Body css*/
+/*html { font-size: 100%; }*/
+
 body{
     background-color:whitesmoke;
     font-family: Helvetica, Arial, sans-serif;
 }
 
-/*Making the website responsive to different resulutions*/
-@media (max-width: 200px) {
-    html
-    {   font-size: 2%;
-        overflow: scroll;
+/*!*Making the website responsive to different resulutions*!*/
+@media (max-width: 480px) {
+    #banner h1{
+    font-size: 18px;
+    }
+    #banner h2{
+        font-size: 14px;
     }
 }
-@media (min-width: 300px) {
+/*Iphone 6s and up*/
+@media (min-width: 481px)and (max-width: 736px) {
+    #banner h1{
+        font-size: 22px;
+    }
+    #banner h2{
+        font-size: 16px;
+    }
+}
+@media (min-width: 767px) {
+    #banner h1{
+        font-size: 42px;
+    }
+    #banner h2{
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    #banner h1{
+        font-size: 52px;
+    }
+    #banner h2{
+        font-size: 46px;
+    }
+}
+
+@media (min-width: 1200px) {
     html {
-        font-size: 70%;
+        font-size: 400px;
         overflow: scroll;
     }
-}
 
-@media (min-width: 360px) {
-    html {
-        font-size: 95%;
-        overflow: scroll;
-    }
-}
 
-@media (min-width: 500px) {
-    html {
-        font-size: 135%;
-        overflow: scroll;
-    }
-}
-
-@media (min-width: 700px) {
-    html {
-        font-size: 160%;
-        overflow: scroll;
-    }
-}
-
-@media (min-width: 1000px) {
-    html { font-size: 180%; }
-}
-
-@media (min-width: 1500px) {
-    html { font-size: 225%; }
 }
 
 /*header css which include the logo and banner*/
+
 header{
     background-color:darksalmon;
     height: 150px;
     margin-bottom: 10px;
     position: relative;
-    min-width: 50%;
+    min-width: 20%;
     max-width: 100%;
 }
 
 header h1{
     margin:1% 2% 0% 20%  ;
     color:black;
-    font-size:1.8em;
+    font-size:20px;
     text-transform:uppercase;
     text-align: center;
     letter-spacing:0.5em;
@@ -72,7 +77,7 @@ header h1{
 header h2{
     margin-left:40%  ;
     margin-top: 0%;
-    font-size: 1.4em;
+    font-size: 15px;
     color:black;
     text-align:center;
     letter-spacing:0.1em;
@@ -82,46 +87,56 @@ header h2{
 
 /*search css*/
 #search{
-    align-items: baseline;
-    margin-top: 10px;
+    align-content: center;
     text-align: center;
-    padding-top: 30px;
+}
+.featurette{
+    text-align: center;
+    /*width:90%;*/
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right:10px;
     font-size: 1.1em;
 }
 
-input[type=text] {
-    height: 55px;
-    width: 210px;
+.featurette input[type=search] {
+    height: 50px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 12px;
-    font-size: .5em;
+    font-size: 1em;
     background-color: white;
-    background-image: url('search_icon.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 12px 10px 12px 40px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
-
-/*making the search box to be larger when focus on it*/
-input[type=text]:focus {
-    width: 91%;
-    height: 65px;
+.btn{
+    color:white;
+    height:70px;
 }
 
+button[type=button] {
+    background-color:darksalmon  ;
+    width:150px;
+    height: 70px;
+    border:4px;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+
 /*Sign in CSS*/
-form {
+/*!*The siging it will aling in center*!*/
+
+#signIn {
     /* Just to center the form on the page */
     margin: 0 auto;
     width: 400px;
     /* To see the outline of the form */
-    padding: 1em;
-}
-
-/*The siging it will aling in center*/
-#signIn{
+    max-width: 330px;
+    padding-bottom: 2em;
     align-content: center;
     text-align: center;
     font-size: 1em;
@@ -129,19 +144,9 @@ form {
 
 }
 
-/*I have costumize the lable of the sing in to be centered */
-#signIn  label {
-    width: 90px;
-    padding-bottom: 10px;
-    display: inline-table ;
-    text-align:left;
-    margin-bottom: 20px;
-    font-size: 0.7em;
-}
-
-/*The css for the input box for sing in */
+/*!*The css for the input box for sing in *!*/
 input[type=email] {
-    height: 45px;
+    height: 40px;
     width: 250px;
     box-sizing: border-box;
     border: 2px solid #24cdd4;
@@ -154,7 +159,7 @@ input[type=email] {
 
 }
 input[type=password] {
-    height: 45px;
+    height: 40px;
     width: 250px;
     box-sizing: border-box;
     border: 2px solid #24cdd4;
@@ -167,14 +172,14 @@ input[type=password] {
 
 }
 
-/*The button that submitts sing in information*/
-.button{
+/*!*The button that submitts sing in information*!*/
+.btnSubmit{
     color:white;
 }
-input[type=submit] {
+button[type=submitBtn] {
     background-color:darksalmon  ;
-    width:200px;
-    height: 60px;
+    width:250px;
+    height: 40px;
     border:4px;
     border-radius: 20px;
     font-size: 1em;
@@ -184,11 +189,11 @@ input[type=submit] {
 #underSearch{
     align-content: center;
     text-align: center;
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
 #underSearch li{
     display: block;
     text-align: center;
-    margin-bottom: 1em;
+    padding-bottom: 1em;
 }
