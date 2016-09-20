@@ -4,7 +4,11 @@ div{
     margin: 2em 0.3em 0em 0.3em;
 }
 /*The menu style*/
+#helloMsg h3{
+    text-align: center;
+    letter-spacing:0.1em;
 
+}
 #menu{
     /*width:80%;*/
     margin-top: 10px;
@@ -17,6 +21,10 @@ button[type=buttonMenu] {
     margin: 6px;
 }
 
+#title {
+    text-align: center;
+
+}
 
 /*The table style to show the info to the user*/
 table, td, th {

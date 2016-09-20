@@ -21,7 +21,6 @@ box at the end contains a transition and transformation.-->
     <!-- singIn.css includes personalized styles for this page-->
     <link type="text/css" rel="stylesheet" href="main.css">
     <link type="text/css" rel="stylesheet" href="signIn.css">
-
     <script type="text/javascript" src="signIn.js"></script>
 
 
@@ -36,12 +35,12 @@ box at the end contains a transition and transformation.-->
     </header>
 <!--Welcome message to the user with their name-->
 <div id="helloMsg">
-    <h3>Welcome, User</h3>
+    <h3 id="userMsg"></h3>
 </div>
 
 <!--Menu will let the user quickly choose what it wants to display-->
 
-<div class="btn-group btn-group-justified">
+<div class="btn-group btn-group-justified" class="menuUser">
     <div class="btn-group">
         <button type="buttonMenu" class="btn btn-primary " class=".col-xs-6 .col-sm-6 .col-lg-8" id="favBtn">Favorite places</button>
     </div>
@@ -87,12 +86,12 @@ box at the end contains a transition and transformation.-->
             </div>
             <div class="modal-footer">
                 <div class="form-group"><button type="submit" class="btn btn-success pull-left">Send</button>
-                    <p class="help-block pull-left text-danger hide" id="form-error">&nbsp; The form is not valid. </p> </div>
                 <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
             </div>
         </div>
     </div>
 </div>
+    </div>
 
 
 <!--The footer contains the box transformation-->

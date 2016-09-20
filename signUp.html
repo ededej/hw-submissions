@@ -8,11 +8,21 @@ We tried to keep it simple so it will not return users back from the long forms.
     <meta charset="UTF-8">
     <title>Pranzo - Sign Up </title>
     <!--The main.css include all previous style that I will follow on this page also-->
-    <!--singUp.css contains personalized style for this page.-->
+    <!--signUp.css contains personalized style for this page.-->
     <link type="text/css" rel="stylesheet" href="signUp.css">
-    <link type="text/css" rel="stylesheet" href="main.css">
+
+    <!--Don't make changes for these headers-->
+    <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
     <script type="text/javascript" src="signUp.js">
     </script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="main.css">
 </head>
 
 
@@ -20,126 +30,126 @@ We tried to keep it simple so it will not return users back from the long forms.
 <!-- The header of lunch website called Pranzo if you click on logo it will send to homepage-->
 <header>
     <a href="index.html" title="Pranzo-Homepage"><img src="plate-004.jpg" width="150" height="150" alt="Pranzo Plate logo"
-                              style="float:left"></a>
+                                                      style="float:left"></a>
     <h1> Pranzo </h1>
     <h2>A better lunch hour</h2>
 </header>
 
 <!--The form to sing up for Pranzo-->
-    <div id="allForm">
-        <h3>Join Pranzo</h3>
+<div id="allForm">
+    <h3>Join Pranzo</h3>
 
-        <form>
-            <div id="names">
-                <p>First Name</p> <input type="name" maxlength="20" placeholder="First Name"/>
+    <form>
+        <div id="names">
+            <h5>First Name</h5> <input type="name" maxlength="20" placeholder="First Name"/>
 
-                <p>Last Name</p> <input type="name" maxlength="20" placeholder="Last Name"/>
-            </div>
+            <h5>Last Name</h5> <input type="name" maxlength="20" placeholder="Last Name"/>
+        </div>
 
-            <div id="sex">
-                <p> Gender</p>
-                <label><input type="radio" name="gender" value="male"> Male</label>
-                <label><input type="radio" name="gender" value="female"> Female</label>
-                <label><input type="radio" name="gender" value="other"> Other</label>
-            </div>
+        <div id="sex">
+            <h5> Gender</h5>
+            <label><input type="radio" name="gender" value="male"> Male</label>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+            <label><input type="radio" name="gender" value="other"> Other</label>
+        </div>
 
-            <div id="diet">
-                <p> Diet</p>
-                <label><input type="checkbox" name="foodOption1" value="veggie"> Vegetarian</label>
-                <label><input type="checkbox" name="foodOption2" value="vegan"> Vegan</label>
-                <label><input type="checkbox" name="foodOption3" value="glFree"> Glutten Free</label>
-                <label><input type="checkbox" name="foodOption4" value="other"> I eat everything</label>
-            </div>
+        <div id="diet">
+            <h5> Diet</h5>
+            <label><input type="checkbox" name="foodOption1" value="veggie"> Vegetarian</label>
+            <label><input type="checkbox" name="foodOption2" value="vegan"> Vegan</label>
+            <label><input type="checkbox" name="foodOption3" value="glFree"> Glutten Free</label>
+            <label><input type="checkbox" name="foodOption4" value="other"> I eat everything</label>
+        </div>
 
-            <div id="emailPass">
-                <p >Email*: </p><input type = "email" placeholder="Insert email"required/>
-                <p >Re-enter E-mail*:</p> <input type = "email" placeholder="Insert email"required/>
-                <p>Password*: </p><input type="password" minlength="8" maxlength="16" placeholder="length between 8-16" name="pwd" required/>
-                <p>Re-enter Password*: </p><input type="password" minlength="8" maxlength="16" placeholder="length between 8-16" name="pwd" required/>
-            </div>
+        <div id="emailPass">
+            <h5>Email*: </h5><input type = "email" name = "email" placeholder="Insert email"required/>
+            <h5>Re-enter E-mail*:</h5> <input type = "email" placeholder="Insert email"required/>
+            <h5>Password*: </h5><input type="password" minlength="8" maxlength="16" placeholder="length between 8-16" name="pwd" required/>
+            <h5>Re-enter Password*: </h5><input type="password" minlength="8" maxlength="16" placeholder="length between 8-16" name="pwd" required/>
+        </div>
 
-<!--The adress reqeries a little more spaces since it will include the select button
-to include all the states in US.-->
-            <div id="Address">
+        <!--The adress reqeries a little more spaces since it will include the select button
+        to include all the states in US.-->
+        <div id="Address">
             <fieldset>
 
                 <legend>Address</legend>
-                    <p>Street: <input type="address" name="street"/></p>
-                    <p>City: <input type="address" name="city"/></p>
-                    <p>State:
-                        <select>
-                            <option value="AL">Alabama</option>
-                            <option value="AK">Alaska</option>
-                            <option value="AZ">Arizona</option>
-                            <option value="AR">Arkansas</option>
-                            <option value="CA">California</option>
-                            <option value="CO">Colorado</option>
-                            <option value="CT">Connecticut</option>
-                            <option value="DE">Delaware</option>
-                            <option value="DC">District Of Columbia</option>
-                            <option value="FL">Florida</option>
-                            <option value="GA">Georgia</option>
-                            <option value="HI">Hawaii</option>
-                            <option value="ID">Idaho</option>
-                            <option value="IL">Illinois</option>
-                            <option value="IN">Indiana</option>
-                            <option value="IA">Iowa</option>
-                            <option value="KS">Kansas</option>
-                            <option value="KY">Kentucky</option>
-                            <option value="LA">Louisiana</option>
-                            <option value="ME">Maine</option>
-                            <option value="MD">Maryland</option>
-                            <option value="MA">Massachusetts</option>
-                            <option value="MI">Michigan</option>
-                            <option value="MN">Minnesota</option>
-                            <option value="MS">Mississippi</option>
-                            <option value="MO">Missouri</option>
-                            <option value="MT">Montana</option>
-                            <option value="NE">Nebraska</option>
-                            <option value="NV">Nevada</option>
-                            <option value="NH">New Hampshire</option>
-                            <option value="NJ">New Jersey</option>
-                            <option value="NM">New Mexico</option>
-                            <option value="NY">New York</option>
-                            <option value="NC">North Carolina</option>
-                            <option value="ND">North Dakota</option>
-                            <option value="OH">Ohio</option>
-                            <option value="OK">Oklahoma</option>
-                            <option value="OR">Oregon</option>
-                            <option value="PA">Pennsylvania</option>
-                            <option value="RI">Rhode Island</option>
-                            <option value="SC">South Carolina</option>
-                            <option value="SD">South Dakota</option>
-                            <option value="TN">Tennessee</option>
-                            <option value="TX">Texas</option>
-                            <option value="UT">Utah</option>
-                            <option value="VT">Vermont</option>
-                            <option value="VA">Virginia</option>
-                            <option value="WA">Washington</option>
-                            <option value="WV">West Virginia</option>
-                            <option value="WI">Wisconsin</option>
-                            <option value="WY">Wyoming</option>
-                        </select>
-                    </p>
-        <p>Zip* : <input type="address" name="zip" pattern= "^[0-9]{5}(?:-[0-9]{4})?$" maxlength="5" required/> </p>
-        </fieldset>
-    </div>
+                <p>Street: <input type="address" name="street"/></p>
+                <p>City: <input type="address" name="city"/></p>
+                <p>State:
+                    <select>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </p>
+                <p>Zip* : <input type="address" name="zip" pattern= "^[0-9]{5}(?:-[0-9]{4})?$" maxlength="5" required/> </p>
+            </fieldset>
+        </div>
 
-            <!--Also we include a range input box where the user will include the highest price that wants to pay for lunc-->
-    <div id="cost">
-        <p>Expected Cost:
-        <input type="range" name="amountRange" min="0" max="100"  step="1" value="15" oninput="this.form.amountInput.value=this.value" />
-        <input type="number" name="amountInput"   min="0" max="100"/> (Max Value 100)</p>
-    </div>
+        <!--Also we include a range input box where the user will include the highest price that wants to pay for lunc-->
+        <div id="cost">
+            <p>Expected Cost:
+                <input type="range" name="amountRange" min="0" max="100"  step="1" value="15" oninput="this.form.amountInput.value=this.value" />
+                <input type="number" name="amountInput"   min="0" max="100"/> (Max Value 100)</p>
+        </div>
 
-            <!--The last part is the Sing in button to send all the informations.-->
-    <div id="SignUpButton">
-        <button class="button">Sign Me Up!</button>
-    </div>
-    <p><left><b></br>* is Required</b></left></p>
+        <!--The last part is the Sing in button to send all the informations.-->
+        <div id="SignUpButton">
+            <button class="button" name="submit" onclick="SubmitPopUp()">Sign Me Up!</button>
+        </div>
+        <p><left><b></br>* is Required</b></left></p>
 
     </form>
-    </div>
+</div>
 
 </body>
 <!--end body-->

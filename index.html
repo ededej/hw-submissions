@@ -23,8 +23,12 @@ The idea is to keep it simple so every user will be able to start using without 
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css"  href="main.css">
+    <!--The javascript code for my index file-->
     <script type="text/javascript" src="index.js"></script>
+
+    <!--Css stylesheet for my index.html-->
+    <link rel="stylesheet" type="text/css"  href="main.css">
+
 
 </head>
 
@@ -50,8 +54,6 @@ The idea is to keep it simple so every user will be able to start using without 
                     <input type="search" placeholder="Zipcode or adreess" class="form-control">
                     <span class="input-group-btn">
                     <button class="btn btn-outline-primary btn-lg " type="button"><span class="glyphicon glyphicon-search"></span>  Search  </button>
-                        <!--<button type="submit" class="btnSearch"><span class="glyphicon glyphicon-search"></span>  Search </button>-->
-
                     </span>
                 </div>
             </form>
@@ -65,13 +67,13 @@ The idea is to keep it simple so every user will be able to start using without 
             <div class="control-group">
                 <label class="control-label" for="inputEmail"  >Email</label>
                 <div class="controls">
-                    <input type="email" id="inputEmail" placeholder="Email">
+                    <input type="email" id="inputEmail" placeholder="Email" required>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="inputPassword">Password</label>
                 <div class="controls">
-                    <input type="password" id="inputPassword" placeholder="Password">
+                    <input type="password" id="inputPassword" placeholder="Password" minlength="8" required>
                 </div>
             </div>
             <div class="control-group">
@@ -79,7 +81,7 @@ The idea is to keep it simple so every user will be able to start using without 
                     <label class="checkbox">
                         <input type="checkbox"> Remember me
                     </label>
-                    <button type="submitBtn" class="btnSubmit" id="login">Sign in</button>
+                    <button type="submitBtn" class="btnSubmit" id="login" onclick="SubmitPopUp()">Sign in</button>
                 </div>
             </div>
         </form>
@@ -91,11 +93,57 @@ The idea is to keep it simple so every user will be able to start using without 
         <ul>
             <li id="singUp" ><a href="signUp.html">Sign up for free </a></li>
             <li id="singUpResturant" ><a href="singUpRest.html">Sign up for Restaurant </a></li>
-            <li id ="about">About Us</li>
-            <li id="contactUs">Contact Us</li>
+            <li id ="about"><a href="#myabout" data-toggle="modal">About Us</a></li>
+            <li id="contactUs" ><a href="#myContact" data-toggle="modal">Contact Us</a></li>
         </ul>
     </div>
 
+<!--Here it is the modal for about us which will toggle in out with bootstrap functions-->
+<div class="modal fade" id="myabout" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h4 class="modal-title">About Pranzo </h4>
+            </div>
+            <div class="modal-body">
+            <p>Pranzo. Pranzo is a search application
+                that searches lunch menus and will give the user a list of
+                restaurants where they can eat lunch. The user will not necessarily
+                need to register to use Lunchy but if they do the app will be able to
+                remember user's choices and filter the results based on those choices
+                and preferences. The user will need to insert a location (zip code)
+                for the app to be able to display places that offer lunch</p>
+            </div>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Here it is the form for the contact form-->
+<div id="myContact" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="myModalLabel">Contact</h3>
+            </div>
+                <div class="modal-body">
+                <form class="form-horizontal col-sm-12">
+                    <div class="form-group"><label>Name</label><input class="form-control required" placeholder="Your name" data-placement="top"  type="text"></div>
+                    <div class="form-group"><label>Message</label><textarea class="form-control required" placeholder="Your message here.." data-placement="top" ></textarea></div>
+                    <div class="form-group"><label>E-Mail</label><input class="form-control email required" placeholder="Email" data-placement="top" type="text"></div>
+                    <div class="form-group"><label>Phone</label><input class="form-control phone" placeholder="Insert your phone number" data-placement="top"  type="text"></div>
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group"><button type="submit" class="btn btn-success pull-left">Send</button>
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 <!--end body-->

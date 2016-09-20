@@ -8,7 +8,7 @@ h3{
 }
 
 form{
-    font-size:0.6em;
+    font-size: 14px;
     display: inline;
     margin-left: 4em;
 
@@ -32,12 +32,12 @@ input[type=checkbox]{
 /*The style for input name */
 
 input[type=name] {
+    font-size: 12px;
     height: 35px;
     width: 250px;
     box-sizing: border-box;
     border: 2px solid #24cdd4;
     border-radius: 12px;
-    font-size: 0.7em;
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 12px;
@@ -55,6 +55,10 @@ input[type=name] {
     width: 250px;
 }
 
+#cost[type=range]{
+
+}
+
 /*The style for adress input to match the rest of the form*/
 input[type=address] {
     height: 30px;
@@ -62,14 +66,14 @@ input[type=address] {
     box-sizing: border-box;
     border: 2px solid #24cdd4;
     border-radius: 12px;
-    font-size: 0.7em;
     background-color: white;
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 12px;
 }
 /* The fildset postions on the page*/
-fieldset { 
+fieldset {
+    font-size: 14px;
     display: block;
     margin-right: 900px;
     padding-top: 0.35em;
@@ -88,6 +92,7 @@ fieldset {
 
 /*Some personalized views for the text */
 #emailPass {
+    font-size: 18px;
     text-align: left;
     display: inline-table;
     width: 380px;
@@ -102,7 +107,7 @@ fieldset {
     height: 60px;
     border:center;
     border-radius: 20px;
-    font-size: 1em;
+    font-size: 18px;
 }
 .button:hover {
     background-color: lightgreen;

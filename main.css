@@ -16,6 +16,9 @@ body{
     #banner h2{
         font-size: 14px;
     }
+    #menu li,ul {
+        overflow:scroll;
+    }
 }
 /*Iphone 6s and up*/
 @media (min-width: 481px)and (max-width: 736px) {
