@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 window.onbeforeunload = function(event) {
     event.returnValue = alert("");
 };
@@ -84,3 +85,5 @@ function SubmitPopUp()
 //         });
 //     }
 // }
+=======
+>>>>>>> ededej/hw2
