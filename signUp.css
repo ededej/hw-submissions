@@ -55,6 +55,10 @@ input[type=name] {
     width: 250px;
 }
 
+#cost[type=range]{
+
+}
+
 /*The style for adress input to match the rest of the form*/
 input[type=address] {
     height: 30px;

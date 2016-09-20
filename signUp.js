@@ -1,46 +1,24 @@
-// window.onbeforeunload = function (e) {
-//     e = e || window.event;
-//
-//     if (e) {
-//         e.returnValue = 'Sure?';
-//     }
-//
-//     return 'Sure?';
-// };
-window.onbeforeunload = function(evt) {
-    var message = 'Did you remember to download your form?';
-    if (typeof evt == 'undefined') {
-        evt = window.event;
-    }
-    if (evt) {
-        evt.returnValue = message;
-    }
+window.onbeforeunload = function(event) {
+    event.returnValue = alert("");
+};
 
-    return message;
-}
 function SubmitPopUp()
 {
-    // alert("Thank you for signing up!");
-    // window.location.href = "index.html";
-    BootstrapDialog.show({
-            type: BootstrapDialog.TYPE_PRIMARY,
-            title:'Message',
-            message: "Thank you for signing up!",
-            buttons: [{
-                label: 'OK',
-                cssClass: 'btn-primary',
-                action: function(dialogItself){
-                    dialogItself.close();
-                    window.location.href = "index.html";
-                }
-            }]
-        });
+    window.location.href = "index.html";
+    alert("Thank you for signing up!");
 
 }
-function GoBack() {
-
-    showMessageDialog("Do you want to go back to last page?","warning");
-}
+//
+// window.onbeforeunload = function (event) {
+//     var message = 'Sure you want to leave?';
+//     if (typeof event == 'undefined') {
+//         event = window.event;
+//     }
+//     if (event) {
+//         event.returnValue = message;
+//     }
+//     return message;
+// }
 
 // function showMessageDialog(message,type)
 // {
