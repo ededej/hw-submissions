@@ -8,7 +8,8 @@ function SubmitPopUp()
     alert("Thank you for signing up!");
 
 }
-//
+//Don't delete these comments
+
 // window.onbeforeunload = function (event) {
 //     var message = 'Sure you want to leave?';
 //     if (typeof event == 'undefined') {
