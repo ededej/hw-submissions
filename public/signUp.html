@@ -13,8 +13,7 @@ We tried to keep it simple so it will not return users back from the long forms.
 
     <!--Don't make changes for these headers-->
     <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
-    <script type="text/javascript" src="signUp.js">
-    </script>
+    <script type="text/javascript" src="signUp.js"></script>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -23,6 +22,9 @@ We tried to keep it simple so it will not return users back from the long forms.
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
 
     <link type="text/css" rel="stylesheet" href="main.css">
+    <!--Script for firebase database-->
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+
 </head>
 
 
@@ -41,29 +43,29 @@ We tried to keep it simple so it will not return users back from the long forms.
 
     <form>
         <div id="names">
-            <h5>First Name</h5> <input type="name" maxlength="20" placeholder="First Name"/>
+            <h5>First Name</h5> <input type="name" id="firstName" maxlength="20" placeholder="First Name"/>
 
-            <h5>Last Name</h5> <input type="name" maxlength="20" placeholder="Last Name"/>
+            <h5>Last Name</h5> <input type="name" id="lastName" maxlength="20" placeholder="Last Name"/>
         </div>
 
         <div id="sex">
             <h5> Gender</h5>
-            <label><input type="radio" name="gender" value="male"> Male</label>
-            <label><input type="radio" name="gender" value="female"> Female</label>
-            <label><input type="radio" name="gender" value="other"> Other</label>
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+            <label><input type="radio" name="gender" value="Other"> Other</label>
         </div>
 
         <div id="diet">
             <h5> Diet</h5>
-            <label><input type="checkbox" name="foodOption1" value="veggie"> Vegetarian</label>
-            <label><input type="checkbox" name="foodOption2" value="vegan"> Vegan</label>
-            <label><input type="checkbox" name="foodOption3" value="glFree"> Glutten Free</label>
-            <label><input type="checkbox" name="foodOption4" value="other"> I eat everything</label>
+            <label><input type="checkbox" name="foodOption" value="Veggie"> Vegetarian</label>
+            <label><input type="checkbox" name="foodOption" value="Vegan"> Vegan</label>
+            <label><input type="checkbox" name="foodOption" value="GlFree"> Glutten Free</label>
+            <label><input type="checkbox" name="foodOption" value="Other"> I eat everything</label>
         </div>
 
         <div id="emailPass">
-            <h5>Email*: </h5><input type = "email" name = "email" placeholder="Insert email"required/>
-            <h5>Re-enter E-mail*:</h5> <input type = "email" placeholder="Insert email"required/>
+            <h5>Email*: </h5><input  type = "email"  id="emailId1" placeholder="Insert email"required/>
+            <h5>Re-enter E-mail*:</h5> <input type = "email" id="emailId2" placeholder="Insert email"required/>
             <h5>Password*: </h5><input type="password" minlength="8" maxlength="16" placeholder="length between 8-16" name="pwd" required/>
             <h5>Re-enter Password*: </h5><input type="password" minlength="8" maxlength="16" placeholder="length between 8-16" name="pwd" required/>
         </div>
@@ -74,10 +76,10 @@ We tried to keep it simple so it will not return users back from the long forms.
             <fieldset>
 
                 <legend>Address</legend>
-                <p>Street: <input type="address" name="street"/></p>
-                <p>City: <input type="address" name="city"/></p>
+                <p>Street: <input type="address" name="street" id="streetId"/></p>
+                <p>City: <input type="address" name="city" id="cityId"/></p>
                 <p>State:
-                    <select>
+                    <select id="state">
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
                         <option value="AZ">Arizona</option>
@@ -131,7 +133,7 @@ We tried to keep it simple so it will not return users back from the long forms.
                         <option value="WY">Wyoming</option>
                     </select>
                 </p>
-                <p>Zip* : <input type="address" name="zip" pattern= "^[0-9]{5}(?:-[0-9]{4})?$" maxlength="5" required/> </p>
+                <p>Zip* : <input id='zipCode' type="address" name="zip" pattern= "^[0-9]{5}(?:-[0-9]{4})?$" maxlength="5" required/> </p>
             </fieldset>
         </div>
 
@@ -144,12 +146,159 @@ We tried to keep it simple so it will not return users back from the long forms.
 
         <!--The last part is the Sing in button to send all the informations.-->
         <div id="SignUpButton">
-            <button class="button" name="submit" onclick="SubmitPopUp()">Sign Me Up!</button>
+            <!--<button id="singUp" class="button" name="submit" onclick="SubmitPopUp()">Sign Me Up!</button>-->
+            <button id="singUp" class="button" name="submit" >Sign Me Up!</button>
+
         </div>
         <p><left><b></br>* is Required</b></left></p>
 
     </form>
 </div>
+
+<script>
+    "use strict";
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyASLA-lv8N5CtE1orATmWy7uINmH0ZSdMA",
+        authDomain: "pranzousersdb.firebaseapp.com",
+        databaseURL: "https://pranzousersdb.firebaseio.com",
+        storageBucket: "",
+        messagingSenderId: "694440498360"
+    };
+    firebase.initializeApp(config);
+
+    var usersRef= firebase.database().ref('users');
+
+    var verifyEmail = document.getElementById("emailId2");
+    verifyEmail.addEventListener("keyup", function (event) {
+        if (!getEmailId) {
+            verifyEmail.setCustomValidity("I expect an e-mail, darling!");
+        } else {
+            verifyEmail.setCustomValidity("");
+        }
+    });
+    $('#singUp').click(function(){
+        var uid=document.getElementById('emailId1').value;
+        var gender=getGenderValue();
+        var foodPrefer= getFoodPref();
+        var elemState = document.getElementById("state");
+        var state = elemState.options[elemState.selectedIndex].text;
+//        var emailId= getEmailId();
+        if (uid == null || uid == "") {
+            alert("Email must be filled out");
+            return false;
+        }else {
+            usersRef.push({
+                        uid: {
+                            FirstName: document.getElementById('firstName').value,
+                            LastName: document.getElementById('lastName').value,
+                            Gender: gender,
+                            Diet: foodPrefer,
+                            Email:uid,
+                            Password: '',
+                            Address: {
+                                Street: document.getElementById('streetId').value,
+                                City: document.getElementById('cityId').value,
+                                State: state,
+                                ZipCode: document.getElementById('zipCode').value
+                            }
+                        }
+                    }
+            )
+        }
+    });
+
+
+
+//    function verifyEmail(input) {
+//        input = input.srcElement;
+//        if (input.value != document.getElementById('emailId1').value) {
+//            // the provided value doesn’t match the primary email address
+//            input.setCustomValidity('The two email addresses must match.');
+//        } else {
+//            // input is valid -- reset the error message
+//            input.setCustomValidity('');
+//        }
+//    }
+    function getGenderValue(){
+        var gender=$('input[name=gender]:checked').val();
+        if(gender){
+            return gender;
+        }else{
+            return "None"
+        }
+    }
+
+    function getFoodPref() {
+        var prefer=$('input[name=foodOption]:checked').val();
+        if(prefer){
+            return prefer;
+        }else{
+            return "None"
+        }
+    }
+    function getEmailId() {
+        var email1= document.getElementById('emailId1').value;
+        var email2= document.getElementById('emailId2').value;
+        if(email1===email2){
+            return true;
+        }else{
+            return false;
+
+        }
+
+
+    }
+
+//    function SubmitPopUp()
+//    {
+//        window.location.href = "signIn.html";
+//        alert("Thank you for signing up!");
+//
+//    }
+//    var todosRef = firebase.database().ref('todos');
+//
+//
+//    var nextIndex = 0;
+//
+//    todosRef.on('child_added', function(data) {
+//        createItem(data.val().text, data.key);
+//    });
+//    todosRef.on('child_changed', function(data) {
+//        $('div[data-index="' + data.key + '"] input').val(data.val().text);
+//    });
+//    todosRef.on('child_removed', function(data) {
+//        $('div[data-index="' + data.key + '"]').remove();
+//    });
+
+
+//    $('#new').click(function()
+//    {
+//        todosRef.push({ 'text': ""});
+//    });
+//
+//    function createItem(value, key)
+//    {
+//        $('#todoItems').append(
+//                '<div class="todoItem" data-index="' + key+ '"><input type="text" onchange="itemChanged(this)" value="'
+//                + value + '"><button onclick="deleteItem(this.parentElement)">&#x2716;</button></div>'
+//        );
+//    }
+
+//    function deleteItem(inputDiv)
+//    {
+//        todosRef.child(inputDiv.dataset.index).remove();
+//    }
+//
+//    function itemChanged(inputElem)
+//    {
+//        var index = inputElem.parentElement.dataset.index;
+//        todosRef.child(inputElem.parentElement.dataset.index).set({ 'text': inputElem.value });
+//    }
+</script>
+</body>
+</html>
+
 
 </body>
 <!--end body-->
