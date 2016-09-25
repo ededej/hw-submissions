@@ -13,7 +13,6 @@ We tried to keep it simple so it will not return users back from the long forms.
 
     <!--Don't make changes for these headers-->
     <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
-    <script type="text/javascript" src="signUp.js"></script>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -24,6 +23,7 @@ We tried to keep it simple so it will not return users back from the long forms.
     <link type="text/css" rel="stylesheet" href="main.css">
     <!--Script for firebase database-->
     <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+    <!--<script type="text/javascript" src="signUp.js"></script>-->
 
 </head>
 
@@ -169,42 +169,78 @@ We tried to keep it simple so it will not return users back from the long forms.
 
     var usersRef= firebase.database().ref('users');
 
-    var verifyEmail = document.getElementById("emailId2");
-    verifyEmail.addEventListener("keyup", function (event) {
-        if (!getEmailId) {
-            verifyEmail.setCustomValidity("I expect an e-mail, darling!");
+//    var email2 = document.getElementById("emailId2");
+//    var email1 = document.getElementById("emailId1");
+//    document.getElementById('emailId2').addEventListener('keyup', keyPressFunc);
+////    email2.addEventListener("onkeyup", function (event) {
+//    function keyPressFunc(e) {
+//        if (e.keyCode == 13) {
+//            if (email1 === email2) {
+//                email2.setCustomValidity("Emails match");
+//            } else {
+//                email2.setCustomValidity("Emails don't match");
+//
+//            }
+//        }
+//    };
+
+
+    function userExistsCallback(userId, exists) {
+        if (exists) {
+            alert('user ' + userId + ' exists!');
         } else {
-            verifyEmail.setCustomValidity("");
+            alert('user ' + userId + ' does not exist!');
         }
-    });
+    }
+
+    // Tests to see if /users/<userId> has any data.
+    function checkIfUserExists(userId) {
+        usersRef.child(userId).once('value', function(snapshot) {
+            var exists = (snapshot.val() !== null);
+            userExistsCallback(userId, exists);
+        });
+    }
+
     $('#singUp').click(function(){
+//        varible to set the new user with uid as key
         var uid=document.getElementById('emailId1').value;
+        var uidCopy=uid;
         var gender=getGenderValue();
         var foodPrefer= getFoodPref();
         var elemState = document.getElementById("state");
         var state = elemState.options[elemState.selectedIndex].text;
-//        var emailId= getEmailId();
+        uid=uid.replace(/\./g, '%20');
         if (uid == null || uid == "") {
             alert("Email must be filled out");
             return false;
         }else {
-            usersRef.push({
-                        uid: {
-                            FirstName: document.getElementById('firstName').value,
-                            LastName: document.getElementById('lastName').value,
-                            Gender: gender,
-                            Diet: foodPrefer,
-                            Email:uid,
-                            Password: '',
-                            Address: {
-                                Street: document.getElementById('streetId').value,
-                                City: document.getElementById('cityId').value,
-                                State: state,
-                                ZipCode: document.getElementById('zipCode').value
-                            }
-                        }
-                    }
-            )
+//            I will check first if the key UiD exits and later create a new with all the values
+            usersRef.once('value', function (snapshot) {
+                var data = snapshot.val();
+                var checkUser = snapshot.hasChild(uid);
+                if (checkUser) {
+                    alert('User with' + uidCopy + ' has an account!\n' + "I can't create this account");
+                    return false;
+                } else {
+//                    alert('user ' + uid + ' does not exist!\n'+"Creating a new user");
+                    usersRef.child(uid).set(
+                            {
+                                FirstName: document.getElementById('firstName').value,
+                                LastName: document.getElementById('lastName').value,
+                                Gender: gender,
+                                Diet: foodPrefer,
+                                Email: uidCopy,
+                                Password: '',
+                                Address: {
+                                    Street: document.getElementById('streetId').value,
+                                    City: document.getElementById('cityId').value,
+                                    State: state,
+                                    ZipCode: document.getElementById('zipCode').value
+                                }
+
+                            });
+                }
+            });
         }
     });
 
@@ -225,7 +261,7 @@ We tried to keep it simple so it will not return users back from the long forms.
         if(gender){
             return gender;
         }else{
-            return "None"
+            return "None";
         }
     }
 
@@ -234,7 +270,7 @@ We tried to keep it simple so it will not return users back from the long forms.
         if(prefer){
             return prefer;
         }else{
-            return "None"
+            return "None";
         }
     }
     function getEmailId() {
@@ -250,52 +286,10 @@ We tried to keep it simple so it will not return users back from the long forms.
 
     }
 
-//    function SubmitPopUp()
-//    {
-//        window.location.href = "signIn.html";
-//        alert("Thank you for signing up!");
-//
-//    }
-//    var todosRef = firebase.database().ref('todos');
-//
-//
-//    var nextIndex = 0;
-//
-//    todosRef.on('child_added', function(data) {
-//        createItem(data.val().text, data.key);
-//    });
-//    todosRef.on('child_changed', function(data) {
-//        $('div[data-index="' + data.key + '"] input').val(data.val().text);
-//    });
-//    todosRef.on('child_removed', function(data) {
-//        $('div[data-index="' + data.key + '"]').remove();
-//    });
 
 
-//    $('#new').click(function()
-//    {
-//        todosRef.push({ 'text': ""});
-//    });
-//
-//    function createItem(value, key)
-//    {
-//        $('#todoItems').append(
-//                '<div class="todoItem" data-index="' + key+ '"><input type="text" onchange="itemChanged(this)" value="'
-//                + value + '"><button onclick="deleteItem(this.parentElement)">&#x2716;</button></div>'
-//        );
-//    }
-
-//    function deleteItem(inputDiv)
-//    {
-//        todosRef.child(inputDiv.dataset.index).remove();
-//    }
-//
-//    function itemChanged(inputElem)
-//    {
-//        var index = inputElem.parentElement.dataset.index;
-//        todosRef.child(inputElem.parentElement.dataset.index).set({ 'text': inputElem.value });
-//    }
 </script>
+
 </body>
 </html>
 
