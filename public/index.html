@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--This is our homepage. Pranzo is a simple website that finds people their favorite lunch
+The first thing users see on our website is the search box to start searching for their lunch. Other than searching
+for lunch, user will be able to sign in so they can save their favorite places and check the suggestion that Pranzo
+makes for lunch. To sing in user need to sing up once to the website. Links for that are located under singin button.
+Also, resturant will be able to sing in and updates their menus at any time so they have separate way to sign in.
+The idea is to keep it simple so every user will be able to start using without to much troubles.
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+    <title>Pranzo</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--The javascript code for my index file-->
+    <script type="text/javascript" src="index.js"></script>
+    <!--<script type="text/javascript" src="/Users/shelby/Dropbox/GMU/SWE432/hw3/node_modules/requirejs/require.js"></script>-->
+    <!--Css stylesheet for my index.html-->
+    <link rel="stylesheet" type="text/css"  href="main.css">
+
+
+</head>
+
+
+<body>
+
+<!-- The header of lunch website called Pranzo-->
+    <header id="banner">
+        <a href="index.html"><img src="plate-004.jpg" width="150" height="150" alt="Ermal Dedej photo"
+                                  style="float:left"></a>
+        <h1> Pranzo </h1>
+        <h2>A better lunch hour</h2>
+    </header>
+
+
+<!--Here is the search bottom-->
+
+    <div class="featurette" id="search">
+        <div class="featurette-inner text-center center-block">
+            <form role="form" class="search" >
+                <h3 class="no-margin-top h1">Find Lunch</h3>
+                <div class="input-group input-group-lg">
+                    <input id="textSearch" type="search" placeholder="Zipcode or adreess" class="form-control">
+                    <span class="input-group-btn">
+                    <button id="btnSearch" class="btn btn-outline-primary btn-lg " type="button"><span class="glyphicon glyphicon-search"></span>  Search  </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="results">
+        <table id="resTable"> </table>
+    </div>
+
+<!-- The singIn section -->
+    <div id="signIn">
+        <form class="form-singin">
+            <h2 class="form-signin-heading"> Sign in</h2>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail"  >Email</label>
+                <div class="controls">
+                    <input type="email" id="inputEmail" placeholder="Email" required>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">Password</label>
+                <div class="controls">
+                    <input type="password" id="inputPassword" placeholder="Password" minlength="8" required>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <button type="submitBtn" class="btnSubmit" id="login" onclick="SubmitPopUp()">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+<!-- This is last part with sign up, sign up resturant, about us, contatct us-->
+<!--I used a list to list them at the end-->
+    <div id="underSearch">
+        <ul>
+            <li id="singUp" ><a href="signUp.html">Sign up for free </a></li>
+            <li id="singUpResturant" ><a href="singUpRest.html">Sign up for Restaurant </a></li>
+            <li id ="about"><a href="#myabout" data-toggle="modal">About Us</a></li>
+            <li id="contactUs" ><a href="#myContact" data-toggle="modal">Contact Us</a></li>
+        </ul>
+    </div>
+
+<!--Here it is the modal for about us which will toggle in out with bootstrap functions-->
+<div class="modal fade" id="myabout" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h4 class="modal-title">About Pranzo </h4>
+            </div>
+            <div class="modal-body">
+            <p>Pranzo. Pranzo is a search application
+                that searches lunch menus and will give the user a list of
+                restaurants where they can eat lunch. The user will not necessarily
+                need to register to use Lunchy but if they do the app will be able to
+                remember user's choices and filter the results based on those choices
+                and preferences. The user will need to insert a location (zip code)
+                for the app to be able to display places that offer lunch</p>
+            </div>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Here it is the form for the contact form-->
+<div id="myContact" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="myModalLabel">Contact</h3>
+            </div>
+                <div class="modal-body">
+                <form class="form-horizontal col-sm-12">
+                    <div class="form-group"><label>Name</label><input class="form-control required" placeholder="Your name" data-placement="top"  type="text"></div>
+                    <div class="form-group"><label>Message</label><textarea class="form-control required" placeholder="Your message here.." data-placement="top" ></textarea></div>
+                    <div class="form-group"><label>E-Mail</label><input class="form-control email required" placeholder="Email" data-placement="top" type="text"></div>
+                    <div class="form-group"><label>Phone</label><input class="form-control phone" placeholder="Insert your phone number" data-placement="top"  type="text"></div>
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group"><button type="submit" class="btn btn-success pull-left">Send</button>
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="index.js"></script>
+
+<!--<script>-->
+    <!--"use strict";-->
+    <!--var sendSearch=[];-->
+    <!--$("#btnSearch").click(function() {-->
+        <!--sendSearch=$('#textSearch').val();-->
+        <!--console.log("value in index "+sendSearch);-->
+
+    <!--$.post("http://127.0.0.1:4000" , {sendSearch:sendSearch} )-->
+            <!--.done(function(data) {-->
+                <!--var restaurants=[];-->
+                <!--$('#resTable').append("<tr> <th>Name</th> <th>Address</th> <th>Location</th>" +-->
+                        <!--"<th>Zipcode</th> <th>Website</th> <th>Price</th> <th>Lunch</th></tr>");-->
+
+                <!--for (var restaurant of data) {-->
+                    <!--console.log(restaurant.name);-->
+
+                    <!--$('#resTable').append(-->
+                            <!--"<tr> <td>"+restaurant.name +"</td>"-->
+                            <!--+ "<td>"+restaurant.address +"</td> "-->
+                            <!--+ "<td>"+restaurant.location +"</td> " +-->
+                            <!--"<td>"+restaurant.zipcode +"</td>" +-->
+                            <!--"<td>"+restaurant.website +"</td>" +-->
+                            <!--"<td>"+restaurant.price +"</td>"+-->
+                            <!--"<td>"+restaurant.lunch +"</td>"+-->
+                            <!--"</tr>");-->
+
+
+                <!--}-->
+
+            <!--});-->
+    <!--});-->
+
+<!--</script>-->
+</body>
+<!--end body-->
+</html>
+<!--end html-->
+<!-- Update Sept 13 12:13Am -->
