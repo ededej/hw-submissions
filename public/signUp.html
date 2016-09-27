@@ -66,10 +66,13 @@ We tried to keep it simple so it will not return users back from the long forms.
         <div id="emailPass">
             <h5>Email*: </h5><input  type = "email"  id="emailId1" placeholder="Insert email"required/>
             <h5>Re-enter E-mail*:</h5> <input type = "email" id="emailId2" placeholder="Insert email"required/>
-            <h5>Password*: </h5><input type="password" minlength="8" maxlength="16" placeholder="length between 8-16" name="pwd" required/>
-            <h5>Re-enter Password*: </h5><input type="password" minlength="8" maxlength="16" placeholder="length between 8-16" name="pwd" required/>
-        </div>
+            <div class="registrationFormAlert" id="stringCheckEmailMatch"></div>
 
+            <h5>Password*: </h5><input id="pass1" type="password" minlength="8" maxlength="16" placeholder="length between 8-16" name="pwd" required onChange="checkPasswordMatch();"/>
+            <h5>Re-enter Password*: </h5><input id="pass2" type="password" minlength="8" maxlength="16" placeholder="length between 8-16" name="pwd" required onChange="checkPasswordMatch();"/>
+            <div class="registrationFormAlert" id="stringCheckPasswordMatch"><p></p></div>
+
+        </div>
         <!--The adress reqeries a little more spaces since it will include the select button
         to include all the states in US.-->
         <div id="Address">
@@ -146,8 +149,8 @@ We tried to keep it simple so it will not return users back from the long forms.
 
         <!--The last part is the Sing in button to send all the informations.-->
         <div id="SignUpButton">
-            <!--<button id="singUp" class="button" name="submit" onclick="SubmitPopUp()">Sign Me Up!</button>-->
-            <button id="singUp" class="button" name="submit" >Sign Me Up!</button>
+            <button id="singUp" class="button" name="submit" onclick="SubmitPopUp()">Submit</button>
+            <!--<button id="singUp" class="button" name="submit" >Submit</button>-->
 
         </div>
         <p><left><b></br>* is Required</b></left></p>
@@ -155,140 +158,7 @@ We tried to keep it simple so it will not return users back from the long forms.
     </form>
 </div>
 
-<script>
-    "use strict";
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyASLA-lv8N5CtE1orATmWy7uINmH0ZSdMA",
-        authDomain: "pranzousersdb.firebaseapp.com",
-        databaseURL: "https://pranzousersdb.firebaseio.com",
-        storageBucket: "",
-        messagingSenderId: "694440498360"
-    };
-    firebase.initializeApp(config);
-
-    var usersRef= firebase.database().ref('users');
-
-//    var email2 = document.getElementById("emailId2");
-//    var email1 = document.getElementById("emailId1");
-//    document.getElementById('emailId2').addEventListener('keyup', keyPressFunc);
-////    email2.addEventListener("onkeyup", function (event) {
-//    function keyPressFunc(e) {
-//        if (e.keyCode == 13) {
-//            if (email1 === email2) {
-//                email2.setCustomValidity("Emails match");
-//            } else {
-//                email2.setCustomValidity("Emails don't match");
-//
-//            }
-//        }
-//    };
-
-
-    function userExistsCallback(userId, exists) {
-        if (exists) {
-            alert('user ' + userId + ' exists!');
-        } else {
-            alert('user ' + userId + ' does not exist!');
-        }
-    }
-
-    // Tests to see if /users/<userId> has any data.
-    function checkIfUserExists(userId) {
-        usersRef.child(userId).once('value', function(snapshot) {
-            var exists = (snapshot.val() !== null);
-            userExistsCallback(userId, exists);
-        });
-    }
-
-    $('#singUp').click(function(){
-//        varible to set the new user with uid as key
-        var uid=document.getElementById('emailId1').value;
-        var uidCopy=uid;
-        var gender=getGenderValue();
-        var foodPrefer= getFoodPref();
-        var elemState = document.getElementById("state");
-        var state = elemState.options[elemState.selectedIndex].text;
-        uid=uid.replace(/\./g, '%20');
-        if (uid == null || uid == "") {
-            alert("Email must be filled out");
-            return false;
-        }else {
-//            I will check first if the key UiD exits and later create a new with all the values
-            usersRef.once('value', function (snapshot) {
-                var data = snapshot.val();
-                var checkUser = snapshot.hasChild(uid);
-                if (checkUser) {
-                    alert('User with' + uidCopy + ' has an account!\n' + "I can't create this account");
-                    return false;
-                } else {
-//                    alert('user ' + uid + ' does not exist!\n'+"Creating a new user");
-                    usersRef.child(uid).set(
-                            {
-                                FirstName: document.getElementById('firstName').value,
-                                LastName: document.getElementById('lastName').value,
-                                Gender: gender,
-                                Diet: foodPrefer,
-                                Email: uidCopy,
-                                Password: '',
-                                Address: {
-                                    Street: document.getElementById('streetId').value,
-                                    City: document.getElementById('cityId').value,
-                                    State: state,
-                                    ZipCode: document.getElementById('zipCode').value
-                                }
-
-                            });
-                }
-            });
-        }
-    });
-
-
-
-//    function verifyEmail(input) {
-//        input = input.srcElement;
-//        if (input.value != document.getElementById('emailId1').value) {
-//            // the provided value doesn’t match the primary email address
-//            input.setCustomValidity('The two email addresses must match.');
-//        } else {
-//            // input is valid -- reset the error message
-//            input.setCustomValidity('');
-//        }
-//    }
-    function getGenderValue(){
-        var gender=$('input[name=gender]:checked').val();
-        if(gender){
-            return gender;
-        }else{
-            return "None";
-        }
-    }
-
-    function getFoodPref() {
-        var prefer=$('input[name=foodOption]:checked').val();
-        if(prefer){
-            return prefer;
-        }else{
-            return "None";
-        }
-    }
-    function getEmailId() {
-        var email1= document.getElementById('emailId1').value;
-        var email2= document.getElementById('emailId2').value;
-        if(email1===email2){
-            return true;
-        }else{
-            return false;
-
-        }
-
-
-    }
-
-
-
-</script>
+<script type="text/javascript" src="signUp.js"></script>
 
 </body>
 </html>

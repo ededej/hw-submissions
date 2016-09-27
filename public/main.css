@@ -128,6 +128,25 @@ button[type=button] {
     border-radius: 20px;
     font-size: 1em;
 }
+/*The table style to show the info to the user*/
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+
+    border-collapse: collapse;
+    width: 100%;
+    background-color: aliceblue;
+}
+
+th, td {
+    padding: 15px;
+}
 
 
 /*Sign in CSS*/
